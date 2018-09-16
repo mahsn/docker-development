@@ -1,8 +1,8 @@
-[![Waffle.io - Issues in progress](https://badge.waffle.io/JeroenBoersma/docker-compose-development.png?label=in%20progress&title=In%20Progress)](https://waffle.io/JeroenBoersma/docker-compose-development?utm_source=badge)
-
 # Docker Development stack
 
 Docker-compose-development aims to be a plug 'n play setup for you to quickly start developing locally with services as [NGINX][4], [PHP][5], [Blackfire][6], [Percona][7], [MailHog][8] and more!
+
+Based on [https://github.com/JeroenBoersma/docker-compose-development](Jeroen Boersma Project)
 
 Also, it contains different configurations for use with [Symfony][9], [Silex][10], [Magento 1 & 2][11], on PHP5 / PHP7 and with [XDEBUG][12] enabled.
 
@@ -69,9 +69,9 @@ Make sure that you have the prerequisites installed and running correctly before
 ## 1). Configure your environment
  1. Clone this repository:
 ```
-git clone git@github.com:JeroenBoersma/docker-compose-development.git development
+git clone git clone git@bitbucket.org:webjump/docker-development.git webjumpdev
 ```
- 2. Run `bin/dev setup`
+ 2. Run `bin/webdev setup`
 This will automaticly create a root user with a random password and adds your user with restricted rights.
 
 
@@ -79,20 +79,20 @@ This will automaticly create a root user with a random password and adds your us
 If you were already using this repository before (or want a local directory), you can map the existing volume with:
 ```
 mkdir -p mysql;
-docker volume create -o 'type=none' -o 'device='${PWD}'/mysql' -o 'o=bind' webjumpdev-mysql-volume
+docker volume create -o 'type=none' -o 'device='${PWD}'/mysql' -o 'o=bind' dockerdev-mysql-volume
 ```
 Or, if you are on OSX:
 ```
 docker-sync start
 ```
 
-A optional, but recommended, step to take is to add the provided `.bin/dev` command to your system so you can use its commands anywhere you like.
+A optional, but recommended, step to take is to add the provided `.bin/webdev` command to your system so you can use its commands anywhere you like.
 
- 1. Run `./bin/dev profile` from the development folder.
+ 1. Run `./bin/webdev profile` from the development folder.
  2. Copy the output into `~/.bashrc` `~/.bash_aliases` `~/.zshrc`, on your own preference.
  3. Log out and log back in for this to take effect. You could also just source the new files in your current terminal `. ~/.bashrc`.
 
-If succeeded you can now use `dev <command>` from anywhere.
+If succeeded you can now use `webdev <command>` from anywhere.
 You can also just type `cdw` which will take you to your workspace directory.
 
 ## 2). Configure your hostnames...
@@ -153,8 +153,8 @@ To update your existing installation, follow these steps:
 
 - go to the development directory
 - `git pull origin master`
-- `bin/dev rebuild`
-- `bin/dev setup`
+- `bin/webdev rebuild`
+- `bin/webdev setup`
 
 
 # But wait, there is more!
