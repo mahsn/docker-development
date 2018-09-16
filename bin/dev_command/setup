@@ -127,7 +127,7 @@ flush privileges;" | ./${DEV_SELF} myroot 2>/dev/null;
     }
 
     shell() {
-        echo 'Add next lines to your shell to implement `cdw`(to workspace) and `dev` to PATH';
+        echo 'Add next lines to your shell to implement `cdw`(to workspace) and `webdev` to PATH';
         echo '';
         ./${DEV_SELF} profile;
     }
