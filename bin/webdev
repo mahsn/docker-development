@@ -35,6 +35,7 @@ init() {
     dc yml_if 'build/dist/docker-compose-blackfire.yml' 'conf/blackfire';
     dc yml_if 'docker-custom.yml' 'docker-custom.yml';
     dc yml_if 'build/dist/docker-compose-varnish.yml' 'conf/varnish.vcl' || dc yml 'build/dist/docker-compose-no-varnish.yml';
+    dc yml_if 'build/dist/docker-compose-rabbitmq.yml' 'conf/rabbitmq';
     dc yml_os;
     dc yml_ssh;
 
@@ -119,6 +120,7 @@ dc() {
         yml 'build/dist/docker-compose-mytop.yml';
         yml 'build/dist/docker-compose-ngrok.yml';
         yml 'build/dist/docker-compose-ctop.yml';
+	yml_if 'build/dist/docker-compose-rabbitmq.yml' 'conf/rabbitmq';
     }
 
     yml() {
