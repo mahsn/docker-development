@@ -1,6 +1,6 @@
 # Docker Development stack
 
-Docker-compose-development aims to be a plug 'n play setup for you to quickly start developing locally with services as [NGINX][4], [PHP][5], [Blackfire][6], [Percona][7], [MailHog][8] and more!
+Docker-compose-development aims to be a plug 'n play setup for you to quickly start developing locally with services as [NGINX][4], [PHP][5], [Blackfire][6], [Percona][7], [MailHog][8], [RabbitMQ][13], [Grunt][14] and more!
 
 Based on [https://github.com/JeroenBoersma/docker-compose-development](Jeroen Boersma Project)
 
@@ -23,6 +23,7 @@ We follow a [Code of Conduct](docs/code-of-conduct.md).
     * [Used (base) images](docs/used-base-images.md)
     * [Customize Docker Containers](docs/customize-docker-containers.md)
     * [Configure Blackfire](docs/configure-blackfire.md)
+    * [Configure RabbitMQ](docs/configure-rabbitmq.md)
     * [How to use different PHP versions](docs/how-to-use-different-php-versions.md)
 		* [Hosts and file structure](docs/hosts-and-file-structure.md)
 		* [Sharing with the world](docs/sharing-with-the-world-via-ngrok.md)
@@ -110,6 +111,7 @@ Use Acrylic DNS Proxy. For more information check the website [http://mayakron.a
 ### Or by using the hostfile
 Add a hostname entry for each of your projects manually to `/etc/hosts`, e.g.:
 `127.0.0.1 mail.localhost`
+`127.0.0.1 rabbitmq.localhost`
 `127.0.0.1 test.project.localhost`
 
 You should now be able to browse to `http://test.project.localhost/info.php` and get a phpinfo() output.
@@ -163,6 +165,7 @@ To update your existing installation, follow these steps:
 * [Used (base) images](docs/used-base-images.md)
 * [Customize Docker Containers](docs/customize-docker-containers.md)
 * [Configure Blackfire](docs/configure-blackfire.md)
+* [Configure RabbitMQ](docs/configure-rabbitmq.md)
 * [Install other PHP versions](docs/install-other-php-versions.md)
 * [Hosts and file structure](docs/hosts-and-file-structure.md)
 * [F.A.Q.](docs/faq.md)
@@ -179,3 +182,5 @@ To update your existing installation, follow these steps:
 [10]: https://silex.sensiolabs.org/
 [11]: https://magento.com/
 [12]: https://xdebug.org/
+[13]: https://www.rabbitmq.com/
+[14]: https://gruntjs.com/
