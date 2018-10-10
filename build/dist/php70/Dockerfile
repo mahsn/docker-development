@@ -1,24 +1,5 @@
-FROM marciowebjump/development-php:7.0-fpm
-MAINTAINER Jeroen Boersma <jeroen@srcode.nl>
-
-# Install AMPQ and RabbitMQ Libs
-RUN apt-get update \
-    && apt-get install -y \
-        librabbitmq-dev \
-        libssh-dev \
-    && docker-php-ext-install \
-        bcmath \
-        sockets \
-    && pecl install amqp \
-    && docker-php-ext-enable amqp
-
-
-# Installing NodeJS from external resource
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
-    apt-get install -y nodejs
-
-#Installing Grunt
-RUN npm install -g grunt-cli
+FROM marciowebjump/development-php:7.0.32-fpm
+MAINTAINER Marcio Maciel <marcio@webjump.com.br>
 
 ARG GID=1000
 ARG UID=1000
