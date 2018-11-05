@@ -1,13 +1,6 @@
 # Configure RabbitMQ
-The Service RabbitMQ is already available in this environment, but not loaded by default.
-To load RabbitMQ, simply add a `conf/rabbitmq` file with these variables:
 
-```
-RABBITMQ_ERLANG_COOKIE=SWQOKODSQALRPCLNMEQG
-RABBITMQ_DEFAULT_USER=YOUR_USERNAME
-RABBITMQ_DEFAULT_PASS=YOUR_PASSWORD
-RABBITMQ_DEFAULT_VHOST=/
-```
+Make sure you have executed the command `bin/webdev setup` to configure RabbitMQ credentials.
 
 To access the RabbitMQ Management, just access from browser: http://rabbitmq.localhost (use our username and password configured in `conf/rabbitmq` to access).
 
