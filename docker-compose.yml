@@ -27,6 +27,7 @@ services:
       - db
       - mailcatch
       - redis
+      - rabbitmq
     network_mode: bridge
     environment:
       - GROUPID
@@ -38,6 +39,7 @@ services:
       - db
       - mailcatch
       - redis
+      - rabbitmq
     network_mode: bridge
     environment:
       - GROUPID
@@ -49,6 +51,7 @@ services:
       - db
       - mailcatch
       - redis
+      - rabbitmq
     network_mode: bridge
     environment:
       - GROUPID
@@ -60,6 +63,7 @@ services:
       - db
       - mailcatch
       - redis
+      - rabbitmq
     network_mode: bridge
     environment:
       - GROUPID
@@ -81,6 +85,7 @@ services:
       - php56:fpm56
       - php71:fpm71
       - php72:fpm72
+      - rabbitmq
     network_mode: bridge
   ssl:
     build:
@@ -89,4 +94,15 @@ services:
         - "127.0.0.1:80:80"
         - "127.0.0.1:443:443"
     network_mode: bridge
+  rabbitmq:
+    environment:
+      - RABBITMQ_ERLANG_COOKIE
+      - RABBITMQ_DEFAULT_USER
+      - RABBITMQ_DEFAULT_PASS
+      - RABBITMQ_DEFAULT_VHOST
+    image: rabbitmq:3.5-management
+    network_mode: bridge
+    ports:
+        - "15672:15672"
+        - "5672:5672"
 
