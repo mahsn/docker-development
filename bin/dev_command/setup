@@ -5,7 +5,54 @@ echo '';
 setup() {
 
     cd ${DEV_PATH};
+    
+    rabbitmq() {
+        if [ -z "${RABBITMQ_DEFAULT_USER}" ]; then
+            local user='' default='rabbitmq';
+            echo 'Which username do you want to use to default RabbitMQ account - default: '${default}'';
+            read -p' ' user;
+            if [ -z "${user}" ]; then
+                user=${default};
+            fi
 
+            export RABBITMQ_DEFAULT_USER=${user};
+            echo 'RABBITMQ_DEFAULT_USER='${RABBITMQ_DEFAULT_USER} >> ${DEV_WORKPATH}/.env;
+        fi;
+
+	if [ -z "${RABBITMQ_DEFAULT_PASS}" ]; then
+            local password='' default='rabbitmq';
+            echo 'Which username do you want to use to default RabbitMQ account - default: '${default}'';
+            read -p' ' password;
+            if [ -z "${password}" ]; then
+                password=${default};
+            fi
+
+            export RABBITMQ_DEFAULT_PASS=${password};
+            echo 'RABBITMQ_DEFAULT_PASS='${RABBITMQ_DEFAULT_PASS} >> ${DEV_WORKPATH}/.env;
+        fi;
+
+	if [ -z "${RABBITMQ_ERLANG_COOKIE}" ]; then
+            local cookie='' default='SWQOKODSQALRPCLNMEQG';
+            echo 'Which Erlang Cookie do you want to use to RabbitMQ - default: '${default}'';
+            read -p' ' cookie;
+            if [ -z "${cookie}" ]; then
+                cookie=${default};
+            fi
+
+            export RABBITMQ_ERLANG_COOKIE=${cookie};
+            echo 'RABBITMQ_ERLANG_COOKIE='${RABBITMQ_ERLANG_COOKIE} >> ${DEV_WORKPATH}/.env;
+        fi;
+        
+        if [ -z "${RABBITMQ_DEFAULT_VHOST}" ]; then
+            local vhost='/';
+
+            export RABBITMQ_DEFAULT_VHOST=${vhost};
+            echo 'RABBITMQ_DEFAULT_VHOST='${RABBITMQ_DEFAULT_VHOST} >> ${DEV_WORKPATH}/.env;
+        fi;
+
+        return 0;
+    }
+    
     mysql() {
         if [ -z "${MYSQL_ROOT_PASSWORD}" ]; then
             local password='' default='webjump';
@@ -135,6 +182,7 @@ flush privileges;" | ./${DEV_SELF} myroot 2>/dev/null;
     suffix;
     php;
     mysql;
+    rabbitmq;
     start;
     shell;
 }
