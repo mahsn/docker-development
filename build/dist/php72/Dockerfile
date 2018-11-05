@@ -1,4 +1,4 @@
-FROM marciowebjump/development-php:7.2.10-fpm
+FROM marciowebjump/development-php:7.2-fpm
 MAINTAINER Marcio Maciel <marcio@webjump.com.br>
 
 ARG GID=1000
