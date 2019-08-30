@@ -70,7 +70,7 @@ Make sure that you have the prerequisites installed and running correctly before
 ## 1). Configure your environment
  1. Clone this repository:
 ```
-git clone git clone git@bitbucket.org:webjump/docker-development.git webjumpdev
+git clone git@github.com:mahsn/docker-development.git 
 ```
  2. Run `bin/webdev setup`
 This will automaticly create a root user with a random password and adds your user with restricted rights.
